@@ -13,15 +13,15 @@ import java.util.Scanner;
 public class DataFetch {
     public static void main(String[] args) throws Exception {
         
-        // Set to 0 in case argument doesn't exist or isn't a number in range
+        // Set to 0 in case argument doesn't exist
         int user_id = 0;
         
-        // Type in user_id (0, 100] as argument or input it 
+        // Check for argument
         if (args.length > 0) {
             try {
                user_id = Integer.parseInt(args[0]);
             } catch (NumberFormatException nfe) {   // In case argument is not an integer
-                System.out.println("Your should either have 0 or 1 arguments and that argument should be a number.\n");
+                System.out.println("Your should either have 0 or 1 argument(s) and that argument should be a number.\n");
                 nfe.printStackTrace();
                 System.out.println();
             }
@@ -30,7 +30,7 @@ public class DataFetch {
         // Get number from them until they give a valid user_id
         while ( !(user_id >= 1 && user_id <= 100)) {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Enter a number from 1 to 100 inclusive");
+            System.out.println("Enter a integer from 1 to 100 inclusive");
             user_id = scan.nextInt();
         }
         System.out.println();
