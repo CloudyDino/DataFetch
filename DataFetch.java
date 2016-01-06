@@ -22,22 +22,21 @@ public class DataFetch {
             try {
                user_id = Integer.parseInt(args[0]);
             } catch (NumberFormatException nfe) {   // In case argument is not an integer
-                System.out.println("Your should either have 0 or 1 argument(s) and that argument should be a number.\n");
-                nfe.printStackTrace();
-                System.out.println();
+                System.out.println("Your should either have no arguments or have 1 integer argument from 1 to 100.");
             }
         }
         
         // Get number from them until they give a valid user_id
         while ( !(user_id >= 1 && user_id <= 100)) {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Enter a integer from 1 to 100 inclusive");
+            System.out.println("Enter a integer from 1 to 100 inclusive.");
             try {
                 user_id = scan.nextInt();
+                if (user_id < 1 || user_id > 100) {
+                    System.out.print("Invalid input. ");
+                }
             } catch (InputMismatchException ime) {
-                System.out.println();
-                ime.printStackTrace();
-                System.out.println();
+                System.out.print("Invalid input. ");
                 user_id = 0;    // To make the while loop run again
             }
         }
