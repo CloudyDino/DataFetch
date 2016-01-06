@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.NumberFormatException;
 import java.net.URL;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DataFetch {
@@ -31,7 +32,14 @@ public class DataFetch {
         while ( !(user_id >= 1 && user_id <= 100)) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter a integer from 1 to 100 inclusive");
-            user_id = scan.nextInt();
+            try {
+                user_id = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println();
+                ime.printStackTrace();
+                System.out.println();
+                user_id = 0;    // To make the while loop run again
+            }
         }
         System.out.println();
         
